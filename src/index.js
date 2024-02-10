@@ -10,6 +10,12 @@ const USERS_DB = [
     username: "Stanislav",
     age: 20,
     hobbies: ["Sport", "English"]
+  },
+  {
+    id: "620a7819-548c-4be6-aec9-b959c7494c19",
+    username: "Dan",
+    age: 21,
+    hobbies: []
   }
 ];
 

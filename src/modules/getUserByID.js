@@ -28,7 +28,7 @@ const getUserByID = async (USESR_DB, id, res) => {
     responseBody = user;
   }
   res.writeHead(statusCode);
-  res.end(JSON.stringify(responseBody));
+  res.end(JSON.stringify(responseBody, null, 3));
 };
 
 export { getUserID };

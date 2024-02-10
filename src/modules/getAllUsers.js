@@ -1,7 +1,8 @@
 const getAllUsers = async (USERS_DB, res) => {
   if(res) {
     res.writeHead(200);
-    res.end(JSON.stringify(USERS_DB));
+    const allUsers = USERS_DB.map(user => JSON.stringify(user, null, 3)).join("\n");
+    res.end(`[\n${allUsers}\n]`);
   } else {
     return [];
   }
