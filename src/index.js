@@ -1,13 +1,20 @@
 import { config } from "dotenv";
-import { getAllUsers } from "./modules/getAllUsers/getAllUsers.js";
+import { usersController } from "./modules/usersController.js";
 import http from "http";
 config();
 
 const PORT = process.env.PORT;
-const USERS_DB = [];
+const USERS_DB = [
+  {
+    id: 1,
+    username: "Test1"
+  },
+  {
+    id: 2,
+    username: "Test2"
+  }
+];
 
 http.createServer(async (req, res) => {
-  if (req.method === "GET" && req.url === "/api/users") {
-    await getAllUsers(USERS_DB, res);
-  }
+  await usersController(USERS_DB, req, res);
 }).listen(PORT);
