@@ -6,15 +6,14 @@ const getUserID = async (USESR_DB, url, res) => {
 
 const isUUID = async (id) => {
   const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-  // return uuidPattern.test(id);
-  return true;
+  return uuidPattern.test(id);
 };
 
 const getUserByID = async (USESR_DB, id, res) => {
   let statusCode = 200;
   let responseBody = null;
 
-  const user = await USESR_DB.filter((e) => e.id === Number(id));
+  const user = await USESR_DB.filter((e) => e.id === id);
   if(await isUUID(id) === false) {
     statusCode = 400;
     responseBody = {

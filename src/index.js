@@ -6,12 +6,10 @@ config();
 const PORT = process.env.PORT;
 const USERS_DB = [
   {
-    id: 1,
-    username: "Test1"
-  },
-  {
-    id: 2,
-    username: "Test2"
+    id: "9663c30d-2ab8-40e2-ba85-bdc0ece2e124",
+    username: "Stanislav",
+    age: 20,
+    hobbies: ["Sport", "English"]
   }
 ];
 
