@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import { getAllUsers } from "./modules/getAllUsers.js";
+import { getAllUsers } from "./modules/getAllUsers/getAllUsers.js";
 import http from "http";
 config();
 
