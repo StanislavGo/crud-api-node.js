@@ -19,7 +19,9 @@ const usersController = async (USERS_DB, req, res) => {
     const url = req.url;
     getUserIDToDelete(USERS_DB, url, res, req);
   } else {
-    console.log("Wrong path")
+    const url = req.url;
+    res.writeHead(404);
+    res.end(JSON.stringify(`${url} is incorrect. Check your path for mistakes, please`));
   }
 };
 

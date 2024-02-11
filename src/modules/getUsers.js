@@ -1,4 +1,4 @@
-const getAllUsers = async (USERS_DB, res) => {
+const getUsers = async (USERS_DB, res) => {
   if(res) {
     res.writeHead(200);
     const allUsers = USERS_DB.map(user => JSON.stringify(user, null, 3)).join("\n");
@@ -8,4 +8,4 @@ const getAllUsers = async (USERS_DB, res) => {
   }
 };
 
-export { getAllUsers };
+module.exports = getUsers;
