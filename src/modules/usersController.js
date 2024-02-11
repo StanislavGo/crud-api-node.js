@@ -18,6 +18,8 @@ const usersController = async (USERS_DB, req, res) => {
   } else if (req.method === "DELETE" && req.url.startsWith("/api/users/")) {
     const url = req.url;
     getUserIDToDelete(USERS_DB, url, res, req);
+  } else {
+    console.log("Wrong path")
   }
 };
 

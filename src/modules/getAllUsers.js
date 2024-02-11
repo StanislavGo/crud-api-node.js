@@ -8,4 +8,4 @@ const getAllUsers = async (USERS_DB, res) => {
   }
 };
 
-export { getAllUsers };
+module.exports = getAllUsers;
