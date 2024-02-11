@@ -1,9 +1,10 @@
 # crud-api-node.js
 implementation of CRUD API using in-memory database underneath.
-1. Clone this repository.
-2. Open your VS code and go to crud-api-node.js folder.
-3. Install all dependences using: npm install
-4. Start the program by writing npm start in console.
+1. Clone this repository
+2. Open your VS code and go to crud-api-node.js folder
+3. Change the branch using git checkout crud-api
+4. Install all dependences using: npm install
+5. Start the program by writing npm start in console
 
 Then you can POST new user. Forward next steps to do it:
 1. You just need to start app using npm start method, and go to the Postman.
