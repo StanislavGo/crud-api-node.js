@@ -17,7 +17,7 @@ const usersController = async (USERS_DB, req, res) => {
     getUserIDtoUpdate(USERS_DB, url, res);
   } else if (req.method === "DELETE" && req.url.startsWith("/api/users/")) {
     const url = req.url;
-    getUserIDToDelete(USERS_DB, url, res);
+    getUserIDToDelete(USERS_DB, url, res, req);
   }
 };
 

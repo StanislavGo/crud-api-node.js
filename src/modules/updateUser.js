@@ -1,19 +1,7 @@
-
-/**
- * 
- * 1. Get user ID
- * 2. Find user in USERS_DB by ID
- * 3. Server should answer with status code 400 and corresponding message if userId is invalid (not uuid)
- * 4. Server should answer with status code 404 and corresponding message if record with id doesn't exist
- * 5. Server should answer with status code 200 and updated record
- * 
- */
-
-
-const getUserIDtoUpdate = async (USESR_DB, url, res) => {
+const getUserIDtoUpdate = async (USERS_DB, url, res, req) => {
   const partsOfURL = url.split("/");
   const id = await partsOfURL[partsOfURL.length - 1];
-  updateUser(USESR_DB, id, res)
+  updateUser(USERS_DB, id, res, req)
 };
 
 const isUUID = async (id) => {
@@ -21,8 +9,25 @@ const isUUID = async (id) => {
   return uuidPattern.test(id);
 };
 
-const updateUser = async (USESR_DB, id, res) => {
-  console.log(`User ID is ${id}`);
+const updateUser = async (USERS_DB, id, res, req) => {
+  let statusCode = 200;
+  let responseBody = "";
+  
+  const user = await USERS_DB.filter((e) => e.id === id);
+  if(await isUUID(id) === false) {
+    statusCode = 400;
+    responseBody = {
+      message: "userId is invalid (not uuid)"
+    };
+  } else if (user.length === 0) {
+    statusCode = 404;
+    responseBody = {
+    message: "user with id === userId doesn't exist"
+    };
+  };
+  
+  res.writeHead(statusCode);
+  res.end(JSON.stringify(responseBody, null, 3));
 };
 
 export { getUserIDtoUpdate };
